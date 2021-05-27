@@ -25,8 +25,8 @@ public class SpotService implements IspotService {
     }
 
     @java.lang.Override
-    public int save(Spot s) {
-        return 0;
+    public Spot save(Spot s) {
+        return data.save(s);
     }
 
     @java.lang.Override

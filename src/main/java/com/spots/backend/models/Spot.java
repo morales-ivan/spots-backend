@@ -1,18 +1,28 @@
 package com.spots.backend.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "spots")
 public class Spot {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
+
     private String description;
+
+    @JsonProperty("spotterId")
     private int spotter_id;
-    private int latitude;
-    private int longitude;
+
+    private double latitude;
+
+    private double longitude;
 
     public Spot() {
 
@@ -42,6 +52,7 @@ public class Spot {
         this.description = description;
     }
 
+    @JsonIgnore
     public int getSpotter_id() {
         return spotter_id;
     }
@@ -50,23 +61,23 @@ public class Spot {
         this.spotter_id = spotter_id;
     }
 
-    public int getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(int latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public int getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(int longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public Spot(int id, String name, String description, int spotter_id, int latitude, int longitude) {
+    public Spot(int id, String name, String description, int spotter_id, double latitude, double longitude) {
         this.id = id;
         this.name = name;
         this.description = description;

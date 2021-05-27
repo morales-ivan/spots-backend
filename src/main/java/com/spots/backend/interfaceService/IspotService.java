@@ -8,6 +8,6 @@ import java.util.Optional;
 public interface IspotService {
     public List<Spot>list();
     public Optional<Spot>listId(int id);
-    public int save(Spot s);
+    public Spot save(Spot s);
     public void delete(int id);
 }

@@ -24,7 +24,7 @@ public class WebConfig {
         return builder -> {
 
             builder.indentOutput(true);
-            builder.propertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE);
+            builder.propertyNamingStrategy(PropertyNamingStrategy.LOWER_CAMEL_CASE);
         };
     }
 }
