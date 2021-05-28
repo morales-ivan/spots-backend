@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.sql.Blob;
 
 @Entity
 @Table(name = "photographs")
@@ -13,8 +14,8 @@ public class Photograph {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @JsonProperty("spotId")
-    private int spot_id;
+    @Column(name = "spot_id")
+    private int spotId;
 
     @JsonProperty("spotterId")
     private int spotter_id;
@@ -31,13 +32,12 @@ public class Photograph {
         this.id = id;
     }
 
-    @JsonIgnore
-    public int getSpot_id() {
-        return spot_id;
+    public int getSpotId() {
+        return spotId;
     }
 
-    public void setSpot_id(int spot_id) {
-        this.spot_id = spot_id;
+    public void setSpotId(int spotId) {
+        this.spotId = spotId;
     }
 
     @JsonIgnore
@@ -57,9 +57,10 @@ public class Photograph {
         this.url = url;
     }
 
-    public Photograph(int id, int spot_id, int spotter_id, String url) {
+
+    public Photograph(int id, int spotId, int spotter_id, String url) {
         this.id = id;
-        this.spot_id = spot_id;
+        this.spotId = spotId;
         this.spotter_id = spotter_id;
         this.url = url;
     }

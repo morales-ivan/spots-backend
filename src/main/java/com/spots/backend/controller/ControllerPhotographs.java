@@ -27,6 +27,9 @@ public class ControllerPhotographs {
         return service.listId(id);
     }
 
+    @GetMapping("/spot/{spotId}")
+    public List<Photograph> get(@PathVariable Integer spotId) { return service.listSpotId(spotId); }
+
     @PostMapping(value = "/post", consumes = "application/json", produces = "application/json")
     public Photograph save(@Validated @RequestBody Photograph p) {
         return service.save(p);

@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "spots")
@@ -16,6 +18,9 @@ public class Spot {
     private String name;
 
     private String description;
+
+    @ElementCollection
+    private List<String> tags = new ArrayList<String>();
 
     @JsonProperty("spotterId")
     private int spotter_id;
@@ -52,6 +57,14 @@ public class Spot {
         this.description = description;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
     @JsonIgnore
     public int getSpotter_id() {
         return spotter_id;
@@ -77,10 +90,11 @@ public class Spot {
         this.longitude = longitude;
     }
 
-    public Spot(int id, String name, String description, int spotter_id, double latitude, double longitude) {
+    public Spot(int id, String name, String description, List<String> tags, int spotter_id, double latitude, double longitude) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.tags = tags;
         this.spotter_id = spotter_id;
         this.latitude = latitude;
         this.longitude = longitude;

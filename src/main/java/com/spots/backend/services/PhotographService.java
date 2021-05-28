@@ -24,6 +24,8 @@ public class PhotographService implements IphotographService {
         return data.findById(id);
     }
 
+    public List<Photograph> listSpotId(int spotId) { return data.findBySpotId(spotId); }
+
     @Override
     public Photograph save(Photograph p) {
         return data.save(p);

@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface IphotographService {
     public List<Photograph>list();
     public Optional<Photograph>listId(int id);
+    public List<Photograph>listSpotId(int spotId);
     public Photograph save(Photograph p);
     public void delete(int id);
 }
